@@ -22,7 +22,7 @@ export default class MiniGameCardView extends YTNode {
   accessibility_text: string;
   overflow_button: ButtonView | null;
   layout: string;
-  color_palette: {
+  color_palette?: {
     text_primary_color: number,
     section_two_color: number,
     section_four_color: number
