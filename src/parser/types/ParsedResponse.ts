@@ -7,6 +7,7 @@ import type {
 
 import type PlayerCaptionsTracklist from '../classes/PlayerCaptionsTracklist.js';
 import type CardCollection from '../classes/CardCollection.js';
+import type ProfileCardView from '../classes/ProfileCardView.js';
 import type Endscreen from '../classes/Endscreen.js';
 import type AudioOnlyPlayability from '../classes/AudioOnlyPlayability.js';
 import type Format from '../classes/misc/Format.js';
@@ -66,6 +67,7 @@ export interface IParsedResponse {
   storyboards?: PlayerStoryboardSpec | PlayerLiveStoryboardSpec;
   endscreen?: Endscreen;
   cards?: CardCollection;
+  profile_card?: ProfileCardView;
   cpn_info?: {
     cpn?: string;
     cpn_source?:
