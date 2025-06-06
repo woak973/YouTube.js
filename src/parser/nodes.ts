@@ -305,6 +305,8 @@ export { default as MetadataRowContainer } from './classes/MetadataRowContainer.
 export { default as MetadataRowHeader } from './classes/MetadataRowHeader.js';
 export { default as MetadataScreen } from './classes/MetadataScreen.js';
 export { default as MicroformatData } from './classes/MicroformatData.js';
+export { default as MiniAppGameInfoDialogView } from './classes/MiniAppGameInfoDialogView.js';
+export { default as MiniGameCardView } from './classes/MiniGameCardView.js';
 export { default as Mix } from './classes/Mix.js';
 export { default as ModalWithTitleAndButton } from './classes/ModalWithTitleAndButton.js';
 export { default as Movie } from './classes/Movie.js';
