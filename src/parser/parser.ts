@@ -23,6 +23,7 @@ import {
 
 import AudioOnlyPlayability from './classes/AudioOnlyPlayability.js';
 import CardCollection from './classes/CardCollection.js';
+import ProfileCardView from './classes/ProfileCardView.js';
 import Endscreen from './classes/Endscreen.js';
 import PlayerAnnotationsExpanded from './classes/PlayerAnnotationsExpanded.js';
 import PlayerCaptionsTracklist from './classes/PlayerCaptionsTracklist.js';
@@ -473,6 +474,11 @@ export function parseResponse<T extends IParsedResponse = IParsedResponse>(data:
   const cards = parseItem(data.cards, CardCollection);
   if (cards) {
     parsed_data.cards = cards;
+  }
+
+  const profile_card = parseItem(data.profileCard, ProfileCardView);
+  if (profile_card) {
+    parsed_data.profile_card = profile_card;
   }
 
   const engagement_panels = parseArray(data.engagementPanels, EngagementPanelSectionList);
