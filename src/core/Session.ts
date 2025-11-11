@@ -7,6 +7,7 @@ import {
   generateRandomString, getRandomUserAgent,
   InnertubeError, Platform, SessionError
 } from '../utils/Utils.js';
+import packageInfo from '../../package.json' with { type: 'json' };
 
 import type { DeviceCategory } from '../utils/Utils.js';
 import type { FetchFunction, ICache } from '../types/index.js';
@@ -169,6 +170,11 @@ export type SessionOptions = {
    */
   generate_session_locally?: boolean;
   /**
+   * If set to `true`, session creation will fail if it's not possible to retrieve session data from YouTube.
+   * If `false`, a local fallback will be used.
+   */
+  fail_fast?: boolean;
+  /**
    * Specifies whether the session data should be cached.
    */
   enable_session_cache?: boolean;
@@ -300,6 +306,7 @@ export default class Session extends EventEmitter {
       options.user_agent,
       options.enable_safety_mode,
       options.generate_session_locally,
+      options.fail_fast,
       options.device_category,
       options.client_type,
       options.timezone,
@@ -332,7 +339,7 @@ export default class Session extends EventEmitter {
     try {
       const session_data = BinarySerializer.deserialize<SerializableSession>(new Uint8Array(buffer));
 
-      if (session_data.library_version !== parseInt(Platform.shim.info.version.split('.')[0])) {
+      if (session_data.library_version !== parseInt(packageInfo.version.split('.', 1)[0])) {
         Log.warn(TAG, `Cached session data is from a different library version (${session_data.library_version}). Regenerating session data.`);
         return null;
       }
@@ -380,6 +387,7 @@ export default class Session extends EventEmitter {
     user_agent: string = getRandomUserAgent('desktop'),
     enable_safety_mode = false,
     generate_session_locally = false,
+    fail_fast = false,
     device_category: DeviceCategory = 'desktop',
     client_name: ClientType = ClientType.WEB,
     tz: string = Intl.DateTimeFormat().resolvedOptions().timeZone,
@@ -445,6 +453,8 @@ export default class Session extends EventEmitter {
           api_version = sw_session_data.api_version;
           context_data = sw_session_data.context_data;
         } catch (error) {
+          if (fail_fast)
+            throw error;
           Log.error(TAG, 'Failed to retrieve session data from server. Session data generated locally will be used instead.', error);
         }
       }
@@ -517,7 +527,7 @@ export default class Session extends EventEmitter {
 
     const buffer = BinarySerializer.serialize({
       ...session_data,
-      library_version: parseInt(Platform.shim.info.version)
+      library_version: parseInt(packageInfo.version)
     });
 
     await cache.set('innertube_session_data', buffer);

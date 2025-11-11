@@ -1,5 +1,66 @@
 # Changelog
 
+## [16.0.1](https://github.com/LuanRT/YouTube.js/compare/v16.0.0...v16.0.1) (2025-10-16)
+
+
+### Bug Fixes
+
+* **FormatUtils#download:** Add missing await for format.decipher() call in download function ([ca05eab](https://github.com/LuanRT/YouTube.js/commit/ca05eab0c38042fa28f526947870edd6659fd208))
+
+## [16.0.0](https://github.com/LuanRT/YouTube.js/compare/v15.1.1...v16.0.0) (2025-10-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Player:** Use AST-based JS extraction with side-effect safe code emission ([#1052](https://github.com/LuanRT/YouTube.js/issues/1052))
+* Use async/await for the javascript evaluator ([#1047](https://github.com/LuanRT/YouTube.js/issues/1047))
+
+### Features
+
+* **history:** Load additional watch history pages ([#1055](https://github.com/LuanRT/YouTube.js/issues/1055)) ([6c12719](https://github.com/LuanRT/YouTube.js/commit/6c127199bad65f3a0086c02c48463eaac22e5077))
+* **parser:** Add `Form.ts` parser class ([#1056](https://github.com/LuanRT/YouTube.js/issues/1056)) ([3d6ed1d](https://github.com/LuanRT/YouTube.js/commit/3d6ed1def90f5e673969cac650c2250fe98d8768))
+* **parser:** Add FormPopup.ts parser class ([#1057](https://github.com/LuanRT/YouTube.js/issues/1057)) ([f738a17](https://github.com/LuanRT/YouTube.js/commit/f738a173fc88d04adb6276894d577b437cf0e532))
+* **protos:** Add playlistTitle field to NextParams ([#1040](https://github.com/LuanRT/YouTube.js/issues/1040)) ([ee9c184](https://github.com/LuanRT/YouTube.js/commit/ee9c184eeb02d1074e06c81897a6fd97078da18b))
+* **Session:** Add `fail_fast` option ([#1066](https://github.com/LuanRT/YouTube.js/issues/1066)) ([d4e4683](https://github.com/LuanRT/YouTube.js/commit/d4e4683d9435814e1b0807b4343df81b0a12116a))
+
+
+### Bug Fixes
+
+* **gen-parser-map:** update reference to the script in auto-generated files ([#1036](https://github.com/LuanRT/YouTube.js/issues/1036)) ([d448fd2](https://github.com/LuanRT/YouTube.js/commit/d448fd28064bac396b20856e39e499bb84955876))
+
+
+### Code Refactoring
+
+* **Player:** Use AST-based JS extraction with side-effect safe code emission ([#1052](https://github.com/LuanRT/YouTube.js/issues/1052)) ([25d0876](https://github.com/LuanRT/YouTube.js/commit/25d0876b913d15039be3655cb266ca706b2409d8))
+* Use async/await for the javascript evaluator ([#1047](https://github.com/LuanRT/YouTube.js/issues/1047)) ([977b13c](https://github.com/LuanRT/YouTube.js/commit/977b13cc23981935b9ea0500238eed93d0a19022))
+
+## [15.1.1](https://github.com/LuanRT/YouTube.js/compare/v15.1.0...v15.1.1) (2025-09-12)
+
+
+### Bug Fixes
+
+* **Player:** Store the full library version in cache entries ([#1032](https://github.com/LuanRT/YouTube.js/issues/1032)) ([a2c3774](https://github.com/LuanRT/YouTube.js/commit/a2c3774e9a0212d7aab7af2baee1f48ad3319a08))
+
+## [15.1.0](https://github.com/LuanRT/YouTube.js/compare/v15.0.1...v15.1.0) (2025-09-11)
+
+
+### Features
+
+* **parser:** Add ListView, ListItemView and SubscribeButtonView ([#1025](https://github.com/LuanRT/YouTube.js/issues/1025)) ([68a6af9](https://github.com/LuanRT/YouTube.js/commit/68a6af9b2c2e4e5a31b2d6f5c5add6c238e5113e))
+* **parser:** Parse badges in ContentMetadataView ([#1017](https://github.com/LuanRT/YouTube.js/issues/1017)) ([aa7cf56](https://github.com/LuanRT/YouTube.js/commit/aa7cf561a7cdec017383b9daa6c9401f08995d4c))
+
+
+### Bug Fixes
+
+* **parser:** LockupMetadataView.image can also be an AvatarStackView ([#1026](https://github.com/LuanRT/YouTube.js/issues/1026)) ([bac8965](https://github.com/LuanRT/YouTube.js/commit/bac896501b9525c28b319301151a0dde93d08ec0))
+* **Player:** Fix global variable extraction in the deciphering code ([#1029](https://github.com/LuanRT/YouTube.js/issues/1029)) ([3ea2815](https://github.com/LuanRT/YouTube.js/commit/3ea2815abac03ae7371e45ae2f2758caf9db2266))
+* **types:** Parser.parseArray always returns an ObservedArray ([#1014](https://github.com/LuanRT/YouTube.js/issues/1014)) ([8be677a](https://github.com/LuanRT/YouTube.js/commit/8be677adec6631be557c95adc8f687e5d01b4fdf))
+
+
+### Performance Improvements
+
+* Replace uses of ObservableArray#get with Array#find ([#1013](https://github.com/LuanRT/YouTube.js/issues/1013)) ([95976de](https://github.com/LuanRT/YouTube.js/commit/95976de115587d8f266bc44355440835f3b2b02f))
+
 ## [15.0.1](https://github.com/LuanRT/YouTube.js/compare/v15.0.0...v15.0.1) (2025-07-22)
 
 

@@ -1,9 +1,8 @@
 // Deno Platform Support
 import type { ICache } from '../types/Cache.js';
 import { Platform } from '../utils/Utils.js';
-import evaluate from './jsruntime/jinter.js';
+import evaluate from './jsruntime/default.js';
 import sha1Hash from './polyfills/web-crypto.js';
-import package_json from '../../package.json' with { type: 'json' };
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -51,7 +50,7 @@ class Cache implements ICache {
       const stat = await Deno.stat(file);
       if (stat.isFile) {
         const data: Uint8Array = await Deno.readFile(file);
-        return data.buffer;
+        return data.buffer as ArrayBuffer;
       }
       throw new Error('An unexpected file was found in place of the cache key');
 
@@ -82,11 +81,6 @@ class Cache implements ICache {
 
 Platform.load({
   runtime: 'deno',
-  info: {
-    version: package_json.version,
-    bugs_url: package_json.bugs.url,
-    repo_url: package_json.homepage.split('#')[0]
-  },
   server: true,
   Cache: Cache,
   sha1Hash,

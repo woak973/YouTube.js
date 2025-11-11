@@ -1,5 +1,5 @@
 // This file was auto generated, do not edit.
-// See ./scripts/build-parser-map.js
+// See ./dev-scripts/gen-parser-map.mjs
 
 export { default as AboutChannel } from './classes/AboutChannel.js';
 export { default as AboutChannelView } from './classes/AboutChannelView.js';
@@ -183,7 +183,9 @@ export { default as FeedFilterChipBar } from './classes/FeedFilterChipBar.js';
 export { default as FeedNudge } from './classes/FeedNudge.js';
 export { default as FeedTabbedHeader } from './classes/FeedTabbedHeader.js';
 export { default as FlexibleActionsView } from './classes/FlexibleActionsView.js';
+export { default as Form } from './classes/Form.js';
 export { default as FormFooterView } from './classes/FormFooterView.js';
+export { default as FormPopup } from './classes/FormPopup.js';
 export { default as GameCard } from './classes/GameCard.js';
 export { default as GameDetails } from './classes/GameDetails.js';
 export { default as Grid } from './classes/Grid.js';
@@ -226,6 +228,8 @@ export { default as ItemSectionTab } from './classes/ItemSectionTab.js';
 export { default as ItemSectionTabbedHeader } from './classes/ItemSectionTabbedHeader.js';
 export { default as LikeButton } from './classes/LikeButton.js';
 export { default as LikeButtonView } from './classes/LikeButtonView.js';
+export { default as ListItemView } from './classes/ListItemView.js';
+export { default as ListView } from './classes/ListView.js';
 export { default as LiveChat } from './classes/LiveChat.js';
 export { default as AddBannerToLiveChatCommand } from './classes/livechat/AddBannerToLiveChatCommand.js';
 export { default as AddChatItemAction } from './classes/livechat/AddChatItemAction.js';
@@ -470,6 +474,7 @@ export { default as StructuredDescriptionPlaylistLockup } from './classes/Struct
 export { default as SubFeedOption } from './classes/SubFeedOption.js';
 export { default as SubFeedSelector } from './classes/SubFeedSelector.js';
 export { default as SubscribeButton } from './classes/SubscribeButton.js';
+export { default as SubscribeButtonView } from './classes/SubscribeButtonView.js';
 export { default as SubscriptionNotificationToggleButton } from './classes/SubscriptionNotificationToggleButton.js';
 export { default as Tab } from './classes/Tab.js';
 export { default as Tabbed } from './classes/Tabbed.js';

@@ -2,8 +2,7 @@
 import type { ICache } from '../types/Cache.js';
 import { Platform } from '../utils/Utils.js';
 import sha1Hash from './polyfills/web-crypto.js';
-import package_json from '../../package.json' assert { type: 'json' };
-import evaluate from './jsruntime/jinter.js';
+import evaluate from './jsruntime/default.js';
 import * as Log from '../utils/Log.js';
 
 const CACHE_TAG = 'Cache';
@@ -61,7 +60,7 @@ class Cache implements ICache {
         if (result instanceof ArrayBuffer) {
           resolve(result);
         } else if (ArrayBuffer.isView(result)) {
-          resolve(result.buffer);
+          resolve(result.buffer as ArrayBuffer);
         } else {
           resolve(undefined);
         }
@@ -95,11 +94,6 @@ class Cache implements ICache {
 Platform.load({
   runtime: 'browser',
   server: false,
-  info: {
-    version: package_json.version,
-    bugs_url: package_json.bugs.url,
-    repo_url: package_json.homepage.split('#')[0]
-  },
   Cache: Cache,
   sha1Hash,
   uuidv4() {
